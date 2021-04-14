@@ -1,8 +1,10 @@
 <?php
 // index.php //Controleur principal
 //gestion de la session - right to be here ? - Contrôle d identification
-// obtention d'une connexion - mysql - 
-
+// obtention d'une connexion - mysql -
+include("tools/MaConnexion.php"); 
+$cnx = MaConnexion::connect();
+var_dump($cnx);
 // main controller ! on aura la sessions à gerer 
 // les droits --> authentification 
 // on aura une demande de connexion et puis on passera les arguments PDO
