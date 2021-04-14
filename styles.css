@@ -62,11 +62,13 @@ nav a p {
   color: black;
 }
 
-nav a p:hover {
+/* le style correspond au rollhover sur le paragraphe et sur la classe selected  */
+nav a p:hover,
+.selected {
   color: black;
   background-color: #ffd222;
 }
-nav a:last-child {
+nav a:last-child p {
   border-right: none;
 }
 
