@@ -14,12 +14,12 @@
         <?php include("haut.php"); ?>
         <!-- <header></header> -->
         <nav>
-            <a href="index.php?section=0"> <p class="<?php echo ($section == 0)?'selected':'' ; ?>">Actualités </p></a> <!-- ? = > query string -->
-            <a href="index.php?section=1"><p class="<?php echo ($section == 1)?'selected':'' ; ?>"> Thèmes </p> </a>
-            <a href="index.php?section=2"> <p class="<?php echo ($section == 2)?'selected':'' ; ?>">Mots-Clés </p> </a>
-            <a href="index.php?section=3"> <p class="<?php echo ($section == 3)?'selected':'' ; ?>"> Upload </p></a>
-            <a href="inscription.php"><p> Login </p></a>
-         </nav>
+            <a href="index.php?section=0"><p class="<?php echo ($section == 0)?'selected':'' ; ?>">Actualités
+        </p></a><a href="index.php?section=1"><p class="<?php echo ($section == 1)?'selected':'' ; ?>">Thèmes
+        </p></a><a href="index.php?section=2"><p class="<?php echo ($section == 2)?'selected':'' ; ?>">Mots-Clés
+    </p></a><a href="index.php?section=3"><p class="<?php echo ($section == 3)?'selected':'' ; ?>">Upload
+</p></a><a href="inscription.php"><p>Login</p></a>
+</nav>
          <?php include("section.php"); ?>
          <?php include("footer.php"); ?>
         
