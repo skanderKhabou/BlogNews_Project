@@ -84,10 +84,12 @@ td {
   padding: 10px;
   border: 1px #000 dotted;
   text-align: center;
+  margin: auto;
+  vertical-align: middle;
 }
 
 td:nth-last-child(-n + 2) {
-  background-color: brown;
+  background-color: #ffd222;
   color: white;
 }
 
