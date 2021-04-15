@@ -17,7 +17,7 @@ switch ($action) {
         case '0':  default:
         // liste des thèmes
         $liste = ManagerTheme::findAll($cnx); 
-        var_dump($liste);
+      //   var_dump($liste);
         include_once("views/themes/liste.php");
         break;
 }
