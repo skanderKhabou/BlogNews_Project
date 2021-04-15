@@ -1,7 +1,7 @@
 <?php 
 class MaConnexion{
     // Attributs
-    private static $url = "mysql:host=localhost:3306;dbname=my_news";
+    private static $url = "mysql:host=localhost:3306;dbname=my_news;charset=utf8";
     private static $user = "root";
     private static $pass = "root";
 
