@@ -98,6 +98,35 @@ td:nth-last-child(-n + 2) {
   width: 15%;
 }
 
+input[type="text"],
+input[type="submit"] {
+  padding: 7px;
+  font-size: 1.3em;
+}
+
+input[type="submit"] {
+  border: 3px #00ff00 solid;
+}
+
+input[type="submit"]:hover {
+  border: 3px #ff0000 solid;
+  cursor: pointer;
+}
+
+#new_x_search p {
+  display: inline-block;
+  width: 50%;
+  vertical-align: middle;
+}
+
+#new_x_search p:nth-child(2) {
+  text-align: right;
+}
+
+#new_x_search {
+  margin: 10px;
+}
+
 h1 {
   text-align: center;
   /* color:red; */

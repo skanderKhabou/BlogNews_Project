@@ -9,8 +9,17 @@ ob_start();
 // le robot n affichera pas le h1 , ils seront enregistrer dans la mémoire vive 
 ?>
 <!-- on va afficher la liste de theme fetcher  -->
+<div id="new_x_search">
+    <p> 
+        <input type="text" placeholder="search ..."/>
+        <input type="submit" value="search"/>
+    </p><p>
+        <a href="index.php?section=1&action=1"><img width="150" src="medias/ICO_NEW.png" alt="new" /></a>
+    </p>
+</div>
+
 <table>
-    <caption>Liste des thèmes</caption>
+    <caption> <?= count($liste) ?> Liste des thèmes trouvé(s) </caption>
     <tr>
     <th>id</th>
     <th>libelle</th>
