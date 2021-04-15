@@ -1,5 +1,5 @@
 <?php
-
+include "models/ManagerTheme.php";
 //controller specifique
 
 switch ($action) {
@@ -16,9 +16,9 @@ switch ($action) {
              break;
         case '0':  default:
         // liste des thèmes
-      //   $liste = ManagerTheme::findAll($cnx) 
+        $liste = ManagerTheme::findAll($cnx); 
+        var_dump($liste);
         include_once("views/themes/liste.php");
         break;
 }
 ?>
-<h1>Hello from themes</h1>
