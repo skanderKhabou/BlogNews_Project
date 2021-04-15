@@ -35,6 +35,7 @@ if(isset($_GET["action"])) {
 // echo "SECTION ==> " . $section . "br/>";
 // echo "ACTION ==> " . $action . "br/>";
 
+// CONTROLLER PRINCIPAL
 switch($section) {
     case "1":
         include_once("controllers/controller_themes.php");

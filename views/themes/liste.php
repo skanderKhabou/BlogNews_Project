@@ -1,7 +1,10 @@
 <?php 
 // view liste themes 
 // creation d'un tampon mémoire - output buffer - pour éviter que
-// la porteuse http (robot http) n'ait envie de printer la réponse trop vite  
+// la porteuse http (robot http) n'ait envie de printer la réponse trop vite 
+
+// TOUT CE QUI EST ECHO PRINT ETC NE VA PAS ETRE AFFICHER GRACE A OB START mais seront 
+// envoyer en memoire vive dans un tampon memoire le caddy du web ! en attendant de tout lacher avec le ob get clean methode 
 ob_start();
 // le robot n affichera pas le h1 , ils seront enregistrer dans la mémoire vive 
 ?>

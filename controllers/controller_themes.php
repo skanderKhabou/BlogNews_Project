@@ -15,7 +15,8 @@ switch ($action) {
              include_once("views/themes/delete.php");
              break;
         case '0':  default:
-        // liste des thèmes 
+        // liste des thèmes
+      //   $liste = ManagerTheme::findAll($cnx) 
         include_once("views/themes/liste.php");
         break;
 }
