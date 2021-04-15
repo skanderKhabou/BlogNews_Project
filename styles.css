@@ -87,10 +87,15 @@ td {
   margin: auto;
   vertical-align: middle;
 }
+table {
+  width: 100%;
+}
 
 td:nth-last-child(-n + 2) {
-  background-color: #ffd222;
-  color: white;
+  background-color: #ffd3227e;
+  color: black;
+  text-align: center;
+  width: 15%;
 }
 
 h1 {
