@@ -2,6 +2,14 @@
 // index.php //Controleur principal
 //gestion de la session - right to be here ? - Contrôle d identification
 // obtention d'une connexion - mysql -
+// ---------------
+
+// function my_autoloader($class){
+//     include 'models/' .$class .'./php';
+// }
+// spl_autoload_register('my_autoloader');
+
+// ----------------
 include("tools/MaConnexion.php"); 
 $cnx = MaConnexion::connect();
 // var_dump($cnx);

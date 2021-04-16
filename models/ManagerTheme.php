@@ -1,6 +1,7 @@
 <?php
 
 include("Theme.php");
+// include("Theme.php"); if auto load !! 
 class ManagerTheme{
 
 
@@ -57,11 +58,54 @@ class ManagerTheme{
         $PDOStmt->execute();
         // -- $res = $PDOStmt->execute();
     }
-    // static function findById(PDO $cnx, int $id):Theme{
-    // }
+
+    ////////////////-----------------------------------/////////////////////////
+    static function findById(PDO $cnx, int $id) : Theme{
+        // requete sql
+        $sql = 
+        "SELECT id_theme,libelle 
+        FROM themes
+         WHERE id_theme = ? ";
+    // -- préparation
+        $PDOStmt = $cnx->prepare($sql);
+        // -- Bind params
+        $PDOStmt->bindParam(1,  $id, PDO::PARAM_INT);
+
+    // -- EXECUTER
+        $PDOStmt->execute();
+        // -- $res = $PDOStmt->execute();
+        $obj = new Theme();
+        // var_dump($obj);
+        // var_dump($PDOStmt->fetch(PDO::FETCH_OBJ));
+       while($record = $PDOStmt->fetch(PDO::FETCH_OBJ) ){
+        $obj->setIdTheme($record->id_theme); // nom de la colonne tel quel 
+        $obj->setLibelle($record->libelle);
+       };
+        // $obj = $PDOStmt->fetch(PDO::FETCH_OBJ);
+        return $obj; 
+    }
   
-    // static function modify(PDO $cnx, Theme $theme):void{
-    // }
+    //////---------------------------------------------------////////////////
+    static function modify(PDO $cnx, Theme $theme):void{
+
+            // ON PARSE L OBJET MALHEUREUSEMENT 
+        $id_theme = $theme->getIdTheme();
+        $libelle = $theme->getLibelle();
+         // requete sql
+         $sql = 
+         "UPDATE themes
+         SET libelle = ?
+          WHERE id_theme = ? ";
+             // -- préparation
+                 $PDOStmt = $cnx->prepare($sql);
+                 // -- Bind params
+                 $PDOStmt->bindParam(1, $libelle, PDO::PARAM_STR);
+                 $PDOStmt->bindParam(2, $id_theme, PDO::PARAM_INT);
+         
+             // -- EXECUTER
+                 $PDOStmt->execute();
+              
+    }
     // static function delete(PDO $cnx, Theme $theme):void{
     // }
     

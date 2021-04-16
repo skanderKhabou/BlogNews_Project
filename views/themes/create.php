@@ -25,3 +25,8 @@ ob_start();
 
 </form>
 </div>
+<?php
+// on vide le tompon qu on a créer 
+$content = ob_get_clean();
+include("template.php");
+?>
