@@ -16,12 +16,19 @@ $section = "0"; // variable dans le php variable globale
 if(isset($_GET["section"])) {
     $section = $_GET["section"];
 }
+
+if(isset($_POST["section"])) {
+    $section = $_POST["section"];
+}
  //variable dans le http !!! regarder template
 
  // on va demandé quelle action demandé 
  $action = "0"; 
 if(isset($_GET["action"])) {
     $action = $_GET["action"];
+}
+if(isset($_POST["action"])) {
+    $action = $_POST["action"];
 }
 // un id .. global pour l element concerné ??
 // $id = null;

@@ -27,6 +27,7 @@ class ManagerTheme{
         // la methode doit retourner quelque chose !! un array !! 
         $liste = []; // liste retournée 
         // tant que y a un prochain resultat dans le jeu du resultat mysql tu le mets dans un truc qui s appel record 
+        // try fetchAll
         while( $record = $PDOStmt->fetch(PDO::FETCH_OBJ)){
             // fetch je vais te ramener chaque prochain enregistrement soit en obj ou en assoc ici on décide de le montrer puis le manipuler a notre guise ! 
             // Un objet pour chaque enregistrement
@@ -38,10 +39,27 @@ class ManagerTheme{
         }
         return $liste;
     }
+     
+    /////////------------------------------------------------------------/////////////
+    static function create(PDO $cnx, Theme $theme):void{
+
+        // on parse l'objet car php n est pas fonctionnel il faut mettre la fonction dans une variable
+        $libelle = $theme->getLibelle();
+// requete sql
+        $sql = 
+        "INSERT INTO themes(libelle) VALUES(?)";
+    // -- préparation
+        $PDOStmt = $cnx->prepare($sql);
+        // -- Bind params
+        $PDOStmt->bindParam(1, $libelle, PDO::PARAM_STR);
+
+    // -- EXECUTER
+        $PDOStmt->execute();
+        // -- $res = $PDOStmt->execute();
+    }
     // static function findById(PDO $cnx, int $id):Theme{
     // }
-    // static function create(PDO $cnx, Theme $theme):void{
-    // }
+  
     // static function modify(PDO $cnx, Theme $theme):void{
     // }
     // static function delete(PDO $cnx, Theme $theme):void{

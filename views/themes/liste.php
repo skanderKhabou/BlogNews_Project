@@ -23,15 +23,15 @@ ob_start();
     <tr>
     <th>id</th>
     <th>libelle</th>
-    <th>Modifier</th>
+    <th>Modifier</th> 
     <th>Supprimer</th>
     </tr>
     <?php foreach ($liste as $theme) { ?>
 <tr>
 <td><?= $theme->getIdTheme(); ?></td>
 <td><?= $theme->getLibelle(); ?></td>
-<td><a href="index.php?section=1&action=2&id=<?= $theme->getIdTheme(); ?>"><img width="15%" src="medias/ICO_MODIFY.png"/> </a></td>
-<td><a href="index.php?section=1&action=3&id=<?= $theme->getIdTheme(); ?>"><img width="15%" src="medias/ICO_DELETE.png"/></a></td>
+<td><a href="index.php?section=1&action=2&id_theme=<?= $theme->getIdTheme(); ?>"><img width="15%" src="medias/ICO_MODIFY.png"/> </a></td>
+<td><a href="index.php?section=1&action=3&id_theme=<?= $theme->getIdTheme(); ?>"><img width="15%" src="medias/ICO_DELETE.png"/></a></td>
 </tr>
     <?php } ?>
 </table>
