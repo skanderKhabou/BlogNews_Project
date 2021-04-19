@@ -65,8 +65,39 @@ switch ($action) {
 
          case '3':
             // suppression ici on passera par confirmation avant de finir l action delete
-             include_once("views/themes/delete.php");
+            if(empty($_POST)) {
+         $theme = ManagerTheme::findById($cnx,(int)$_GET['id_theme']);
+         include_once("views/themes/delete.php");
+            }
+            else{
+               // on récupere l id de theme qui arrive en post 
+            if(isset($_POST['id_theme'])){
+               ManagerTheme::delete($cnx,(int)$_POST['id_theme']);
+            }
+            $liste = ManagerTheme::findAll($cnx);
+            include_once("views/themes/liste.php");
+            }
              break;
+         
+             case '4':
+               $pattern = null; // ou metter pattern vide et enlever 87 et 91 
+               if(isset($_POST['pattern']) ) {
+                  if(!empty($_POST['pattern'])) {
+                     $pattern = $_POST['pattern'];
+                     $liste = ManagerTheme::findAllWithFilter($cnx,$pattern);
+
+                  }
+                  else {
+                     $listeThemes = ManagerTheme::findAll($cnx);
+                  }
+               }  
+               // Méthode pour retourner une liste de thème avec un filtre 
+               // refresh liste -retour - 
+               include_once("views/themes/liste.php");
+               break;
+
+
+
         case '0':  default:
         // liste des thèmes
         $liste = ManagerTheme::findAll($cnx); 

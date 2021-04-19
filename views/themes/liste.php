@@ -11,8 +11,14 @@ ob_start();
 <!-- on va afficher la liste de theme fetcher  -->
 <div id="new_x_search">
     <p> 
-        <input type="text" placeholder="search ..."/>
+    <form action ="index.php" method="POST">
+
+        <input type="hidden" name="section" value="<?= $section ?>"/>
+        <input type ="hidden" name="action" value="4"/>
+        <input type="text" name="pattern" placeholder="search ..."/>
         <input type="submit" value="search"/>
+
+    </form>      
     </p><p>
         <a href="index.php?section=1&action=1"><img width="150" src="medias/ICO_NEW.png" alt="new" /></a>
     </p>
