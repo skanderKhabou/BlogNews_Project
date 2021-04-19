@@ -56,7 +56,7 @@ document.getElementById("bt-check").onclick = function() {
     if(document.getElementById("search").value.length == 0){
         document.getElementById("flagErr").innerHTML = "You should put at least one Letter";
         validation = false
-        event.preventDefault();
+        event.preventDefault(); // parce que on a type submit et pas button !! 
     }
     if(validation) document.getElementById("bt-check").submit();
 }

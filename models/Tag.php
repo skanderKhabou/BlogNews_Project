@@ -1,5 +1,5 @@
 <?php
-class Theme{
+class Tag{
     private $idTag;
     private $libelle;
 
@@ -7,11 +7,11 @@ class Theme{
 
     }
 
-    function getidTag(){
+    function getIdTag(){
         return $this -> idTag;
     }
 
-    function setidTag(int $idTag): void{
+    function setIdTag(int $idTag): void{
         $this -> idTag = $idTag;
     }
 
