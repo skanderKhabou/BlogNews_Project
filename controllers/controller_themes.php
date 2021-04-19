@@ -80,15 +80,12 @@ switch ($action) {
              break;
          
              case '4':
-               $pattern = null; // ou metter pattern vide et enlever 87 et 91 
+               $pattern; 
                if(isset($_POST['pattern']) ) {
                   if(!empty($_POST['pattern'])) {
                      $pattern = $_POST['pattern'];
                      $liste = ManagerTheme::findAllWithFilter($cnx,$pattern);
 
-                  }
-                  else {
-                     $listeThemes = ManagerTheme::findAll($cnx);
                   }
                }  
                // Méthode pour retourner une liste de thème avec un filtre 

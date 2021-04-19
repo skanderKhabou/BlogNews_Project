@@ -15,10 +15,11 @@ ob_start();
 
         <input type="hidden" name="section" value="<?= $section ?>"/>
         <input type ="hidden" name="action" value="4"/>
-        <input type="text" name="pattern" placeholder="search ..."/>
-        <input type="submit" value="search"/>
+        <input id="search" type="text" name="pattern" value="" placeholder="search ..."/>
+        <input id="bt-check" type="submit" value="search"/>
 
-    </form>      
+    </form>  
+    <p id="flagErr" style="color:red;"></p>    
     </p><p>
         <a href="index.php?section=1&action=1"><img width="150" src="medias/ICO_NEW.png" alt="new" /></a>
     </p>
@@ -48,3 +49,15 @@ ob_start();
 $content = ob_get_clean();
 include("template.php");
 ?>
+
+<script>
+let validation =true;
+document.getElementById("bt-check").onclick = function() {
+    if(document.getElementById("search").value.length == 0){
+        document.getElementById("flagErr").innerHTML = "You should put at least one Letter";
+        validation = false
+        event.preventDefault();
+    }
+    if(validation) document.getElementById("bt-check").submit();
+}
+</script>
