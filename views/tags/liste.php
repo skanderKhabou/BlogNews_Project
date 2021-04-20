@@ -22,7 +22,7 @@ ob_start();
 </div>
 
 <table>
-    <caption> <?= count($liste) ?> Liste des tag trouvé(s) </caption>
+    <caption> <?= count($liste) ?> tag(s) trouvé(s) </caption>
     <tr>
     <th>id_keyword</th>
     <th>libelle</th>
@@ -33,8 +33,8 @@ ob_start();
 <tr>
 <td><?= $tag->getIdTag(); ?></td>
 <td><?= $tag->getLibelle(); ?></td>
-<td><a href="index.php?section=1&action=2&id_keyword=<?= $tag->getIdTag(); ?>"><img width="15%" src="medias/ICO_MODIFY.png"/> </a></td>
-<td><a href="index.php?section=1&action=3&id_keyword=<?= $tag->getIdTag(); ?>"><img width="15%" src="medias/ICO_DELETE.png"/></a></td>
+<td><a href="index.php?section=2&action=2&id_keyword=<?= $tag->getIdTag(); ?>"><img width="15%" src="medias/ICO_MODIFY.png"/> </a></td>
+<td><a href="index.php?section=2&action=3&id_keyword=<?= $tag->getIdTag(); ?>"><img width="15%" src="medias/ICO_DELETE.png"/></a></td>
 </tr>
     <?php } ?>
 </table>
@@ -44,4 +44,16 @@ ob_start();
 $content = ob_get_clean();
 include("template.php");
 ?>
+
+<script>
+let validation =true;
+document.getElementById("bt-check").onclick = function() {
+    if(document.getElementById("search").value.length == 0){
+        document.getElementById("flagErr").innerHTML = "You should put at least one Letter";
+        validation = false
+        event.preventDefault(); // parce que on a type submit et pas button !! 
+    }
+    if(validation) document.getElementById("bt-check").submit();
+}
+</script>
 

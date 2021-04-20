@@ -1,7 +1,7 @@
 <?php
 
 
-include("Models/ManagerTags.php");
+include "Models/ManagerTags.php";
 $tag = new Tag();
 //controller specifique
 switch ($action) {
@@ -28,15 +28,65 @@ switch ($action) {
    break;
 
      case '2':
-        // détail du theme
-         include_once("views/tags/update.php");
+        // détail du tag
+         if(empty($_POST)){
+            if(isset($_GET['id_keyword'])){
+               $tag = ManagerTags::findById($cnx,  $_GET['id_keyword']);
+               // (int)
+               // var_dump($tag);
+               include_once("views/tags/update.php");
+            }
+        
+         }
+         else{
+            if(isset($_POST['id_keyword'])){
+               $tag->setIdtag($_POST['id_tag']);
+            }
+            if(isset($_POST['libelle'])){
+               $tag->setLibelle($_POST['libelle']);
+            }
+            // manager tag 
+            ManagerTags::modify($cnx,$tag);
+            // REFRESH LISTE RETOUR
+            $liste = ManagerTags::findAll($cnx);
+            include_once("views/tags/liste.php");
+         // header('Location: index.php?redirection');
+         //    exit;
+         }
          break;
+      
 
 
          case '3':
             // suppression ici on passera par confirmation avant de finir l action delete
-             include_once("views/tags/delete.php");
+            if(empty($_POST)) {
+         $tag = ManagerTags::findById($cnx,(int)$_GET['id_keyword']);
+         include_once("views/tags/delete.php");
+            }
+            else{
+               // on récupere l id de tag qui arrive en post 
+            if(isset($_POST['id_keyword'])){
+               ManagerTags::delete($cnx,(int)$_POST['id_keyword']);
+            }
+            $liste = ManagerTags::findAll($cnx);
+            include_once("views/tags/liste.php");
+            }
              break;
+         
+             case '4':
+               $pattern; 
+               if(isset($_POST['pattern']) ) {
+                  if(!empty($_POST['pattern'])) {
+                     $pattern = $_POST['pattern'];
+                     $liste = ManagerTags::findAllWithFilter($cnx,$pattern);
+
+                  }
+               }  
+               // Méthode pour retourner une liste de thème avec un filtre 
+               // refresh liste -retour - 
+               include_once("views/tags/liste.php");
+               break;
+
 
 
         case '0':  default:
