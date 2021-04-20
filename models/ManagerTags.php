@@ -2,7 +2,7 @@
 
 include("Tag.php");
 // include("Theme.php"); if auto load !! 
-class ManagerTag{
+class ManagerTags{
 
 
     static function findAll(PDO $cnx): array{
