@@ -100,7 +100,9 @@ td:nth-last-child(-n + 2) {
 }
 
 input[type="text"],
-input[type="submit"] {
+input[type="submit"],
+select,
+option {
   padding: 7px;
   font-size: 1.3em;
 }

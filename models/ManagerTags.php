@@ -89,7 +89,7 @@ class ManagerTags{
     static function modify(PDO $cnx, Tag $tag):void{
 
             // ON PARSE L OBJET MALHEUREUSEMENT 
-        $id_theme = $tag->getIdTag();
+        $id_keyword = $tag->getIdTag();
         $libelle = $tag->getLibelle();
          // requete sql
          $sql = 

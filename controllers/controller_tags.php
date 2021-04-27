@@ -40,7 +40,7 @@ switch ($action) {
          }
          else{
             if(isset($_POST['id_keyword'])){
-               $tag->setIdtag($_POST['id_tag']);
+               $tag->setIdTag($_POST['id_keyword']);
             }
             if(isset($_POST['libelle'])){
                $tag->setLibelle($_POST['libelle']);
