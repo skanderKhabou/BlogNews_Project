@@ -4,15 +4,21 @@ ob_start();
 ?>
 <h1>created</h1>
 <div>
-    <form action="index.php" method="POST">
+    <form>
     <div>
     <p> Create a new Themes</p>
     <p>
     <input id="libelle_T" type="text" name="libelle_T" value=""/>
     </p>
     <p id="err-libelle" style="color:red;" ></p>
-    <input id="ajaxButt" type="button" value="Create"/>
 </div>
+<div>
+<p>
+<input id="ajaxButt" type="button" value="Create a new Theme"/>
+</p>
+</div>
+
+<hr style="margin:20px;"/>
 </form>
 
 
@@ -77,9 +83,4 @@ document.getElementById("bt-check").onclick = function() {
     if(validation) document.getElementById("bt-check").submit();
 }
 
-document.getElementById("search").onclick = function(){
-    document.getElementById("search").setAttribute("style", "background-color:white;");
-    document.getElementById("err-libelle").innerHTML = "";
-
-}
 </script>

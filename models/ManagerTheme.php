@@ -69,17 +69,18 @@ class ManagerTheme{
             // fetch je vais te ramener chaque prochain enregistrement soit en obj ou en assoc ici on décide de le montrer puis le manipuler a notre guise ! 
             // Un objet pour chaque enregistrement
             $obj = array();
-            $obj['id_theme']($record['id_theme']); // nom de la colonne tel quel 
-            $obj['libelle']($record['libelle']);
+            $obj['id_theme']=$record['id_theme']; // nom de la colonne tel quel 
+            $obj['libelle']=$record['libelle'];
 
             array_push($liste, $obj);
         }
+
         return $liste;
     }
      
     /////////------------------------------------------------------------/////////////
     static function create(PDO $cnx, Theme $theme):void{
-
+// echo "je suis la ";
         // on parse l'objet car php n est pas fonctionnel il faut mettre la fonction dans une variable
         $libelle = $theme->getLibelle();
 // requete sql

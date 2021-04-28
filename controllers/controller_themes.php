@@ -23,8 +23,8 @@ switch ($action) {
          // REFRESH LISTE RETOUR
          $liste = ManagerTheme::findAll($cnx);
          include_once("views/themes/liste.php");
-         header('Location: index.php?redirection');
-         exit;
+         // header('Location: index.php?redirection');
+         // exit;
       }
       break;
    
